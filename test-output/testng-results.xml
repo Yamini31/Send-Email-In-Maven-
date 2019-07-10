@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="345" started-at="2019-07-08T07:20:52Z" finished-at="2019-07-08T07:20:53Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="345" started-at="2019-07-08T07:20:52Z" finished-at="2019-07-08T07:20:53Z">
+      <class name="SendMavenEmail.SendMavenEmail.BasicTest">
+        <test-method status="PASS" signature="verifysum()[pri:0, instance:SendMavenEmail.SendMavenEmail.BasicTest@68be2bc2]" name="verifysum" duration-ms="316" started-at="2019-07-08T07:20:52Z" finished-at="2019-07-08T07:20:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifysum -->
+      </class> <!-- SendMavenEmail.SendMavenEmail.BasicTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

@@ -1,0 +1,110 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>SendMavenEmail</groupId>
+	<artifactId>SendMavenEmail</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>SendMavenEmail</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.relevantcodes</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>2.41.1</version>
+		</dependency>
+		<!-- TestNG dependency -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.9.4</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- Suirefire plugin to run xml files -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18.1</version>
+				<configuration>
+					<suiteXmlFiles>
+						TestNG suite XML files
+						<suiteXmlFile>testng.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>ch.fortysix</groupId>
+				<artifactId>maven-postman-plugin</artifactId>
+				<executions>
+					<execution>
+
+						<id>send a mail</id>
+						<phase>test</phase>
+						<goals>
+							<goal>send-mail</goal>
+						</goals>
+						<inherited>true</inherited>
+
+						<configuration>
+							<!-- From Email address -->
+							<from>yaminigupta31397@gmail.com</from>
+
+							<!-- Email subject -->
+							<subject>Test Automation Report</subject>
+
+							<!-- Fail the build if the mail doesnt reach -->
+							<failonerror>true</failonerror>
+
+							<!-- host -->
+							<mailhost>smtp.gmail.com</mailhost>
+							<!-- port of the host -->
+							<mailport>465</mailport>
+							<mailssl>true</mailssl>
+							<mailAltConfig>true</mailAltConfig>
+
+							<!-- Email Authentication(USername and Password) -->
+							<mailuser>yaminigupta31397@gmail.com</mailuser>
+							<mailpassword>yaminigupta</mailpassword>
+
+							<receivers>
+								<!-- To Email address -->
+								<receiver>yaminigupta31397@gmail.com</receiver>
+							</receivers>
+
+							<fileSets>
+								<fileSet>
+									<directory>/home/qainfotech/eclipse-workspace/SendMavenEmail/target/surefire-reports</directory>
+									<includes>
+										<include>emailable-report.html</include>
+									</includes>
+								</fileSet>
+
+							</fileSets>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
